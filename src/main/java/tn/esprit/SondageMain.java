@@ -1,5 +1,5 @@
+package tn.esprit;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.naming.Context;
@@ -22,7 +22,7 @@ public class SondageMain {
 
 		
 		//Question II.1.1
-		QuestionSondage tvPrefere = new QuestionSondage("Quelle est votre chaîne TV préférée ?");
+		QuestionSondage tvPrefere = new QuestionSondage("Quelle est votre chaï¿½ne TV prï¿½fï¿½rï¿½e ?");
 		int idTVPrefere = sondageServiceRemote.ajouterQuestion(tvPrefere);
 		
 		//Question II.1.2
@@ -39,7 +39,7 @@ public class SondageMain {
 		
 		
 		//Question II.1.4 (cascade persist)
-		QuestionSondage fruitPrefere = new QuestionSondage("Quel est votre fruit préféré ?");
+		QuestionSondage fruitPrefere = new QuestionSondage("Quel est votre fruit prï¿½fï¿½rï¿½ ?");
 		ReponseSondage fraise = new ReponseSondage("Fraise");
 		ReponseSondage orange = new ReponseSondage("Orange"); 
 		ReponseSondage kiwi = new ReponseSondage("Kiwi"); 
@@ -51,9 +51,9 @@ public class SondageMain {
 		
 		fruitPrefere.setReponses(listReponsesFruitPrefere);
 		
-		sondageServiceRemote.ajouterQuestionEtReponses(fruitPrefere);
+		sondageServiceRemote.ajouterQuestion(fruitPrefere);
 		
-//		QuestionSondage couleurPrefere = new QuestionSondage("Quelle est votre couleur préférée ?");
+//		QuestionSondage couleurPrefere = new QuestionSondage("Quelle est votre couleur prï¿½fï¿½rï¿½e ?");
 //		ReponseSondage rouge = new ReponseSondage("Rouge");
 //		ReponseSondage noir = new ReponseSondage("Noir"); 
 //		ReponseSondage bleu = new ReponseSondage("Bleu"); 
@@ -86,14 +86,14 @@ public class SondageMain {
 		
 		//III.3.1
 		//fetch
-		System.out.println("Les réponses de Hela BOUAZIZ sont : ");
+		System.out.println("Les rï¿½ponses de Hela BOUAZIZ sont : ");
 		List<ReponseSondage> reponseSondages = sondageServiceRemote.getAllResponsesParPersonnes(helaBOUAZIZId);
 		for (ReponseSondage reponseSondage : reponseSondages) {
-			System.out.println(reponseSondage.getReponse());
+			System.out.println(reponseSondage.getLabel());
 		}
 		
 		//III.3.2
-		System.out.println("Nombre de personnes qui ont répondu : " + sondageServiceRemote.nbPersonne());
+		System.out.println("Nombre de personnes qui ont rï¿½pondu : " + sondageServiceRemote.nbPersonne());
 	}
 
 }
